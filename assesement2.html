@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+
+    <style>
+body { font-size:  12pt;} 
+table {border-collapse : collapse; width: 100%}
+th, td { border: 1pt  solid #D8D9DA ; padding: 8px; text-align: left; }
+th{
+    background-color: #D6EFED; text-align: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <h2>Employee Details</h2>
+
+    <table id="employeeTable">
+
+        <thead>
+            <tr>
+               <th> Employee Name</th>
+               <th>Designation</th>
+               <th> Date Of Joining</th>
+               
+
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        const employees = [
+            { name : "John Doe" , designation :"Technical Writer" , joinDate: '2022-01-01' , address: '123 Main St' , salary: 60000},
+            { name : "Jane Smith" , designation :"Developer" , joinDate: '2022-02-15' , address: '456 Pune' , salary: 700000},
+            { name : "Bob" , designation :"Technical Writer" , joinDate: '2022-03-20' , address: ' Khopoli' , salary: 55000},
+
+        ];
+
+        const displayEmployees = (employees) => employees.forEach( e => {
+            const row = employeeTable.insertRow();
+            [e.name, e.designation, e.joinDate ].forEach((value, index) => row.insertCell(index).textContent = value);
+        });
+
+        displayEmployees(employees.filter(e => e.designation === 'Technical Writer'));
+        displayEmployees(employees.filter(e => e.salary > 500000 && e.salary < 700000));
+    </script>
+
+
+
+
+    
+</body>
+</html>
